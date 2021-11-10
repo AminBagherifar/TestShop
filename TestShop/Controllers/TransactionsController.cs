@@ -36,17 +36,17 @@ namespace TestShop.Controllers
 
             return transaction;
         }
-        
-        //[HttpGet]
-        //public async Task<ActionResult<User>> GetMaxBuyer()
-        //{
-        //    var transaction = await _transactionService.GetMaxBuyer();
-        //    if (transaction==null)
-        //        return NotFound();
-        //    var user = await _userService.GetUserById(transaction.UserId);
 
-        //    return user;
-        //}     
+        [HttpGet]
+        public async Task<ActionResult<User>> GetMaxBuyer()
+        {
+            var transaction = await _transactionService.GetMaxBuyer();
+            if (transaction == null)
+                return NotFound();
+            var user = await _userService.GetUserById(transaction.UserId);
+
+            return user;
+        }
 
         [HttpGet]
         public async Task<ActionResult<User>> GetMaxBuyerInDate()
