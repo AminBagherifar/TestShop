@@ -1,0 +1,41 @@
+﻿@page
+@model TestShop.Pages.Users.CreateModel
+
+@{
+    ViewData["Title"] = "افزودن";
+}
+
+<h1>افزودن کاربر</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserModel.Name" class="control-label"></label>
+                <input asp-for="UserModel.Name" class="form-control" />
+                <span asp-validation-for="UserModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserModel.Family" class="control-label"></label>
+                <input asp-for="UserModel.Family" class="form-control" />
+                <span asp-validation-for="UserModel.Family" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserModel.Email" class="control-label"></label>
+                <input asp-for="UserModel.Email" class="form-control" />
+                <span asp-validation-for="UserModel.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">برگشت</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
